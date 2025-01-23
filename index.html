@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lime Incremental Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Lime Incremental Game</h1>
+
+    <!-- Tab Buttons -->
+    <div class="tabs">
+      <button class="tab-button active" onclick="openTab('production')">Production</button>
+      <button class="tab-button" onclick="openTab('upgrades')">Upgrades</button>
+      <button class="tab-button" onclick="openTab('specialUpgrades')">Special Upgrades</button>
+      <button class="tab-button" onclick="openTab('prestige')">Prestige</button>
+    </div>
+
+    <!-- Production Tab -->
+    <div id="production" class="tab-content active">
+      <p>Limes: <span id="widgets">0</span></p>
+      <p>Limes per Second: <span id="wps">0</span></p>
+      <p>Key Limes: <span id="keyLimes">0</span></p>
+
+      <!-- Manual Production Button -->
+      <button onclick="produceWidget()">Squeeze a Lime</button>
+
+      <!-- Extra Info Button -->
+      <button id="extraInfoButton" onclick="toggleExtraInfo()">i</button>
+
+      <!-- Key Limes Explanation (Hidden by Default) -->
+      <div id="keyLimesInfo" class="info-box" style="display: none;">
+        <h2>About Key Limes</h2>
+        <p>
+          Key Limes are rare and valuable! You can earn them randomly when producing regular limes.
+          <br>
+          <strong>Tip:</strong> The more limes you produce, the more chances you have to find Key Limes!
+        </p>
+      </div>
+    </div>
+
+    <!-- Upgrades Tab -->
+    <div id="upgrades" class="tab-content">
+      <h2>Upgrades</h2>
+      <div id="upgradesList">
+        <button onclick="buyUpgrade('autoClicker')">Buy Lime Squeezer (Cost: 10 Limes)</button>
+        <button onclick="buyUpgrade('factory')">Buy Lime Farm (Cost: 100 Limes)</button>
+        <button onclick="buyUpgrade('megaFactory')">Buy Lime Factory (Cost: 1000 Limes)</button>
+      </div>
+    </div>
+
+    <!-- Special Upgrades Tab -->
+    <div id="specialUpgrades" class="tab-content">
+      <h2>Special Upgrades</h2>
+      <div id="specialUpgradesList">
+        <button onclick="buySpecialUpgrade('limeBoost')">Lime Boost (Cost: 5 Key Limes)</button>
+        <button onclick="buySpecialUpgrade('limeLuck')">Lime Luck (Cost: 10 Key Limes)</button>
+        <button onclick="buySpecialUpgrade('limeMastery')">Lime Mastery (Cost: 20 Key Limes)</button>
+      </div>
+
+      <!-- Special Upgrades Explanation (Hidden by Default) -->
+      <div id="specialUpgradesInfo" class="info-box" style="display: none;">
+        <p>
+          Special Upgrades are powerful enhancements that can only be purchased with Key Limes.
+          <br>
+          <strong>Available Upgrades:</strong>
+        </p>
+        <ul>
+          <li><strong>Lime Boost</strong> (5 Key Limes): Doubles your lime production speed.</li>
+          <li><strong>Lime Luck</strong> (10 Key Limes): Increases your chance of finding Key Limes.</li>
+          <li><strong>Lime Mastery</strong> (20 Key Limes): Unlocks new features and upgrades.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Prestige Tab -->
+    <div id="prestige" class="tab-content">
+      <h2>Prestige</h2>
+      <p>Prestige Level: <span id="prestigeLevel">0</span></p>
+      <p>Prestige Bonus: <span id="prestigeBonus">1x</span></p>
+      <button onclick="prestige()">Prestige (Cost: 10,000 Limes)</button>
+
+      <!-- Prestige Explanation (Hidden by Default) -->
+      <div id="prestigeInfo" class="info-box" style="display: none;">
+        <p>
+          Prestige allows you to reset your progress in exchange for permanent bonuses.
+          <br>
+          <strong>How it works:</strong>
+        </p>
+        <ul>
+          <li>You can prestige once you have at least <strong>10,000 limes</strong>.</li>
+          <li>When you prestige, you lose all limes and upgrades but gain a <strong>prestige level</strong>.</li>
+          <li>Each prestige level increases your lime production speed permanently.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
