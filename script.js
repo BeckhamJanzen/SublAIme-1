@@ -28,7 +28,6 @@ function produceWidget() {
   // Random chance to earn a key lime (e.g., 5% chance)
   if (Math.random() < 0.05) {
     keyLimes++;
-    alert("You found a Key Lime!");
   }
   updateDisplay();
 }
